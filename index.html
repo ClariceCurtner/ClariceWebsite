@@ -122,6 +122,16 @@
       color: var(--muted);
       font-size: .82rem;
     }
+    .secondary-contact {
+      display: inline-block;
+      margin-top: 7px;
+      color: var(--ocean-deep);
+      font-size: .9rem;
+      font-weight: 750;
+      text-decoration-color: var(--sunset);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
 
     .profile-mark {
       position: relative;
@@ -131,33 +141,29 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 28px;
-      background: linear-gradient(145deg, var(--ocean) 0%, #c96f88 58%, #f0b6c6 100%);
+      background: var(--ocean-pale);
       box-shadow: 0 20px 45px rgba(163,79,104,.18);
     }
-    .profile-mark::before,
     .profile-mark::after {
       position: absolute;
-      width: 280px;
-      height: 280px;
-      border: 1px solid rgba(255,255,255,.28);
-      border-radius: 50%;
+      z-index: 1;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 38%;
+      background: linear-gradient(transparent, rgba(62,39,48,.68));
       content: "";
     }
-    .profile-mark::before { top: -155px; right: -110px; }
-    .profile-mark::after { bottom: -160px; left: -145px; }
-    .initials {
-      position: relative;
-      z-index: 1;
-      color: var(--white);
-      font-family: Georgia, serif;
-      font-size: clamp(5rem, 13vw, 8.5rem);
-      font-weight: 400;
-      letter-spacing: -.1em;
-      line-height: 1;
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      object-position: center 30%;
     }
     .profile-mark span {
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       right: 28px;
       bottom: 25px;
       color: rgba(255,255,255,.88);
@@ -205,6 +211,54 @@
     }
     .credentials span { font-size: .9rem; }
 
+    .experience {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: clamp(22px, 6vw, 72px);
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,253,249,.76);
+    }
+    .experience h2 {
+      margin-bottom: 12px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+    }
+    .experience-card {
+      min-height: 220px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+    }
+    .experience-card h3 {
+      margin: 0 0 4px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.33rem;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .experience-card .role {
+      margin: 0 0 15px;
+      color: var(--ocean);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .experience-card p:last-child { margin-bottom: 0; }
+
     .writing {
       display: grid;
       grid-template-columns: .7fr 1.3fr;
@@ -247,6 +301,38 @@
       line-height: 1.35;
     }
 
+    .coast-note {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      margin: 0;
+      border-radius: 24px;
+      background: var(--ocean-deep);
+    }
+    .coast-note::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(62,39,48,.62), rgba(62,39,48,.08));
+      content: "";
+    }
+    .coast-note img {
+      display: block;
+      width: 100%;
+      min-height: 230px;
+      object-fit: cover;
+    }
+    .coast-note figcaption {
+      position: absolute;
+      z-index: 1;
+      left: clamp(22px, 5vw, 56px);
+      bottom: clamp(22px, 4vw, 40px);
+      max-width: 350px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      line-height: 1.05;
+    }
+
     footer {
       display: flex;
       flex-wrap: wrap;
@@ -260,9 +346,11 @@
 
     @media (max-width: 680px) {
       .page { padding-top: 18px; }
-      .hero, .education, .writing { grid-template-columns: 1fr; }
+      .hero, .education, .experience, .writing { grid-template-columns: 1fr; }
       .hero { padding-top: 55px; }
       .profile-mark { min-height: 215px; order: -1; }
+      .profile-photo { min-height: 215px; }
+      .experience-grid { grid-template-columns: 1fr; }
       .nav .label { display: none; }
     }
 
@@ -285,14 +373,15 @@
       <section class="hero" aria-labelledby="intro-heading">
         <div>
           <p class="eyebrow">Cal Poly SLO · Orfalea College of Business</p>
-          <h1 id="intro-heading">Finance-focused.<br>People-minded.</h1>
-          <p class="intro">I’m Clarice Curtner, a Business Administration student in Cal Poly’s Orfalea College of Business, pursuing a Finance concentration. I bring an entrepreneurial mindset to understanding people, opportunities, and practical next steps.</p>
+          <h1 id="intro-heading">Finance student.<br>Business problem-solver.</h1>
+          <p class="intro">I’m Clarice Curtner, a Business Administration student in Cal Poly’s Orfalea College of Business, pursuing a Finance concentration and exploring corporate finance. I enjoy turning messy business problems into clear, practical next steps.</p>
           <a class="primary-cta" id="linkedin-link" href="https://www.linkedin.com/in/clarice-curtner-a15633343/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
-          <span class="cta-status" id="cta-status" aria-live="polite">Open to Summer 2027 internship conversations.</span>
+          <span class="cta-status" id="cta-status" aria-live="polite">Exploring Summer 2027 corporate finance and broader finance internship opportunities.</span>
+          <a class="secondary-contact" href="mailto:claricecurtner@gmail.com">claricecurtner@gmail.com</a>
         </div>
 
-        <div class="profile-mark" aria-label="Clarice Curtner monogram">
-          <div class="initials" aria-hidden="true">CC</div>
+        <div class="profile-mark">
+          <img class="profile-photo" src="assets/clarice-headshot.webp" alt="Clarice Curtner in professional attire">
           <span>Expected graduation · May 2028</span>
         </div>
       </section>
@@ -317,9 +406,33 @@
         </div>
       </section>
 
+      <section class="experience" aria-labelledby="experience-heading">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-heading">Work I’m proud to put into practice.</h2>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h3>Special FX Salon</h3>
+            <p class="role">AI Operations &amp; Systems Consultant</p>
+            <p>Identified <strong>8 business bottlenecks</strong> across recordkeeping, accounting, and marketing, then built systems to make day-to-day work easier to manage.</p>
+          </article>
+          <article class="experience-card">
+            <h3>Curtner Consulting</h3>
+            <p class="role">Small Business Consultant</p>
+            <p>Led digital-transformation projects for <strong>3 local businesses</strong>, supporting modern operations, customer reach, and cash-flow visibility.</p>
+          </article>
+          <article class="experience-card">
+            <h3>Skyline Women’s Soccer</h3>
+            <p class="role">Team Captain</p>
+            <p>Elected by peers to lead a team of <strong>15+ student-athletes</strong>, balancing communication, feedback, and a collaborative team culture.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="writing" aria-labelledby="writing-heading">
         <div>
-          <p class="eyebrow">Recent writing</p>
+          <p class="eyebrow">How I think</p>
           <h2 id="writing-heading">Startup principles worth practicing.</h2>
         </div>
         <div class="writing-copy">
@@ -329,6 +442,11 @@
           <p>That perspective shapes how I think about teams, customers, and the everyday work behind a good idea.</p>
         </div>
       </section>
+
+      <figure class="coast-note">
+        <img src="assets/coastal-sunset.webp" alt="Palm-lined California coast at sunset">
+        <figcaption>Grounded in California, focused on what’s next.</figcaption>
+      </figure>
     </main>
 
     <footer>
