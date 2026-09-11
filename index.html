@@ -1,24 +1,469 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My next idea · The Understudy</title>
-<style>*{box-sizing:border-box}body{margin:0;background:#f5f2e9;color:#20281f;font:18px/1.55 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 6vw}header{display:flex;justify-content:space-between;border-bottom:1px solid #b8bcae;padding-bottom:22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}.stage{display:grid;grid-template-columns:1.5fr 1fr;gap:7vw;align-items:center;min-height:65vh}h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(60px,8vw,112px);letter-spacing:-.06em;line-height:.96;margin:40px 0 25px}p{max-width:530px}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase}.mark{height:280px;position:relative;display:grid;place-items:center}.mark span{position:absolute;width:160px;height:220px;border:2px solid #42613b;transform:rotate(var(--r));transition:transform .5s}.mark span:nth-child(1){--r:-25deg}.mark span:nth-child(2){--r:0deg;background:#dbe4be}.mark span:nth-child(3){--r:25deg}.mark:hover span{transform:rotate(calc(var(--r) * 1.3))}a{color:inherit;text-underline-offset:5px}.links{display:flex;flex-wrap:wrap;gap:24px;padding:25px 0}.primary{background:#263d24;color:#fff;padding:12px 20px;text-decoration:none}footer{border-top:1px solid #b8bcae;padding-top:24px;font-size:14px}a:focus-visible{outline:3px solid #a54919;outline-offset:5px}@media(max-width:650px){.stage{display:block;min-height:0}.mark{height:170px;margin:30px 0}.mark span{width:100px;height:140px}header{gap:20px}main{padding:25px 7vw}}@media(prefers-reduced-motion:reduce){.mark span{transition:none}.mark:hover span{transform:rotate(var(--r))}}.live{border-top:1px solid #b8bcae;padding:22px 0 4px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}.live code{flex:1 1 300px;min-width:0;background:#fff;border:1px solid #b8bcae;padding:11px 13px;font-size:14px;overflow-wrap:anywhere}.live button{min-height:44px;padding:11px 18px;font:inherit;font-weight:600;color:#fff;background:#263d24;border:0;cursor:pointer}.live button:focus-visible{outline:3px solid #a54919;outline-offset:5px}.live small{flex-basis:100%;font-size:14px;color:#4a5247}</style>
-<main><header><b>CPVC / The Understudy</b><span>Session 02 · Starter</span></header><section class="stage"><div><h1>A small site.<br>A real beginning.</h1><p>This is my working starter. My own one-page site and one useful interaction come next.</p><p class="eyebrow">Published first. Made mine next.</p></div><div class="mark" aria-hidden="true"><span></span><span></span><span></span></div></section><div class="live"><code id="liveurl">Open this page over http:// or https:// to see its address.</code><button id="copy" type="button">Copy link</button><small id="copyhint">This is the address you submit. Not your GitHub repository address.</small></div><div class="links"><a class="primary" href="https://calpolyvibecoding.com/portal">Submit my live URL ↗</a><a id="guide" href="https://github.com/calpolyvibecoding-01/cpvc-02-understudy-template#readme">Follow the build guide →</a><a href="examples/coast/">See the coastal example →</a></div><footer>Deploy this untouched starter, open the actual live URL, then confirm your portal submission. <strong>STOP 1:</strong> only then brief the agent and build your own idea. Keep the same root URL as your site grows.</footer></main>
-<script>
-(function(){
-  var box=document.getElementById('liveurl'),btn=document.getElementById('copy'),
-      hint=document.getElementById('copyhint'),guide=document.getElementById('guide');
-  var web=location.protocol==='http:'||location.protocol==='https:';
-  var url=web?location.origin+location.pathname:'';
-  if(web){box.textContent=url;}else{btn.hidden=true;hint.textContent='You are viewing this file directly. Publish it with GitHub Pages to get a real address.';}
-  var host=location.hostname.match(/^([a-z0-9-]+)\.github\.io$/i),
-      repo=location.pathname.split('/').filter(Boolean)[0];
-  if(host&&repo){guide.href='https://github.com/'+host[1]+'/'+repo+'#readme';}
-  btn.addEventListener('click',function(){
-    function pick(){var r=document.createRange();r.selectNodeContents(box);
-      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
-      hint.textContent='Link selected. Press Ctrl+C or Cmd+C to copy it.';}
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(function(){hint.textContent='Copied. Paste it into the Link field in the portal.';},pick);
-    }else{pick();}
-  });
-})();
-</script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clarice Curtner | Business Administration</title>
+  <meta name="description" content="Clarice Curtner is a Business Administration student with an entrepreneurial mindset, open to Summer 2027 internship conversations.">
+  <style>
+    :root {
+      --ocean: #a34f68;
+      --ocean-deep: #632e40;
+      --ocean-pale: #f6dde4;
+      --sand: #fff5f7;
+      --sand-deep: #f1d6dd;
+      --sunset: #c7778d;
+      --ink: #3e2730;
+      --muted: #755762;
+      --white: #fffafd;
+      --line: rgba(163, 79, 104, .20);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 4%, rgba(231,157,180,.32), transparent 21rem),
+        linear-gradient(160deg, var(--sand) 0%, #fffaf1 55%, var(--ocean-pale) 100%);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--sunset);
+      outline-offset: 4px;
+    }
+
+    .page { max-width: 1120px; margin: 0 auto; padding: 28px 5vw 48px; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .monogram {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: var(--white);
+      background: var(--ocean);
+      border-radius: 50%;
+      letter-spacing: 0;
+      font-family: Georgia, serif;
+      font-size: 1rem;
+    }
+
+    main { display: grid; gap: 28px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr);
+      gap: clamp(32px, 8vw, 110px);
+      align-items: center;
+      padding: clamp(54px, 10vw, 116px) 0 clamp(46px, 7vw, 78px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--ocean);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.15rem, 7vw, 6.7rem);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .94;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+    }
+
+    .primary-cta {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 21px;
+      border: 2px solid var(--ocean);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--ocean);
+      box-shadow: 0 10px 22px rgba(99,46,64,.18);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease;
+    }
+    .primary-cta:hover { transform: translateY(-2px); background: var(--ocean-deep); }
+
+    .cta-status {
+      display: block;
+      min-height: 1.6em;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    .secondary-contact {
+      display: inline-block;
+      margin-top: 7px;
+      color: var(--ocean-deep);
+      font-size: .9rem;
+      font-weight: 750;
+      text-decoration-color: var(--sunset);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .profile-mark {
+      position: relative;
+      display: grid;
+      min-height: 280px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--ocean-pale);
+      box-shadow: 0 20px 45px rgba(163,79,104,.18);
+    }
+    .profile-mark::after {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 38%;
+      background: linear-gradient(transparent, rgba(62,39,48,.68));
+      content: "";
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .profile-mark span {
+      position: absolute;
+      z-index: 2;
+      right: 28px;
+      bottom: 25px;
+      color: rgba(255,255,255,.88);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .education {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: clamp(22px, 6vw, 72px);
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(246,221,228,.62);
+    }
+    .education h2 {
+      margin-bottom: 12px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .education-copy { max-width: 620px; }
+    .credentials {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0 0;
+    }
+    .credentials div {
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+    }
+    .credentials dt {
+      color: var(--ocean-deep);
+      font-weight: 800;
+    }
+    .credentials dd {
+      margin: 3px 0 0;
+      color: var(--muted);
+    }
+    .credentials span { font-size: .9rem; }
+
+    .experience {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: clamp(22px, 6vw, 72px);
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,253,249,.76);
+    }
+    .experience h2 {
+      margin-bottom: 12px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+    }
+    .experience-card {
+      min-height: 220px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+    }
+    .experience-card h3 {
+      margin: 0 0 4px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.33rem;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .experience-card .role {
+      margin: 0 0 15px;
+      color: var(--ocean);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .experience-card p:last-child { margin-bottom: 0; }
+
+    .writing {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: clamp(22px, 6vw, 72px);
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,253,249,.76);
+    }
+    .writing h2 {
+      margin-bottom: 12px;
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .writing-copy { max-width: 620px; }
+    .writing-copy p:last-child { margin-bottom: 0; }
+    .note-label {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--ocean-deep);
+      background: var(--ocean-pale);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .pull-quote {
+      margin: 20px 0;
+      padding-left: 18px;
+      border-left: 3px solid var(--sunset);
+      color: var(--ocean-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+
+    .coast-note {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      margin: 0;
+      border-radius: 24px;
+      background: var(--ocean-deep);
+    }
+    .coast-note::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(62,39,48,.62), rgba(62,39,48,.08));
+      content: "";
+    }
+    .coast-note img {
+      display: block;
+      width: 100%;
+      min-height: 230px;
+      object-fit: cover;
+    }
+    .coast-note figcaption {
+      position: absolute;
+      z-index: 1;
+      left: clamp(22px, 5vw, 56px);
+      bottom: clamp(22px, 4vw, 40px);
+      max-width: 350px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      line-height: 1.05;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 18px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 680px) {
+      .page { padding-top: 18px; }
+      .hero, .education, .experience, .writing { grid-template-columns: 1fr; }
+      .hero { padding-top: 55px; }
+      .profile-mark { min-height: 215px; order: -1; }
+      .profile-photo { min-height: 215px; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .nav .label { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .primary-cta { transition: none; }
+      .primary-cta:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Site identity">
+      <span class="monogram" aria-label="Clarice Curtner">CC</span>
+      <span class="label">Finance Concentration · Portfolio</span>
+      <span>Cal Poly SLO</span>
+    </nav>
+
+    <main>
+      <section class="hero" aria-labelledby="intro-heading">
+        <div>
+          <p class="eyebrow">B.S. in Business Administration · Finance Concentration</p>
+          <h1 id="intro-heading">Finance student.<br>Interested in how businesses grow.</h1>
+          <p class="intro">I’m Clarice Curtner, a Business Administration student in Cal Poly’s Orfalea College of Business, pursuing a Finance concentration. I’m exploring corporate finance and interested in how financial decisions shape growth, operations, and long-term strategy.</p>
+          <a class="primary-cta" id="linkedin-link" href="https://www.linkedin.com/in/clarice-curtner-a15633343/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+          <span class="cta-status" id="cta-status" aria-live="polite">Exploring Summer 2027 corporate finance and broader finance internship opportunities.</span>
+          <a class="secondary-contact" href="mailto:claricecurtner@gmail.com">claricecurtner@gmail.com</a>
+        </div>
+
+        <div class="profile-mark">
+          <img class="profile-photo" src="assets/clarice-headshot.webp" alt="Clarice Curtner in professional attire">
+          <span>Expected graduation · May 2028</span>
+        </div>
+      </section>
+
+      <section class="education" aria-labelledby="education-heading">
+        <div>
+          <p class="eyebrow">About &amp; education</p>
+          <h2 id="education-heading">Finance grounded.<br>Entrepreneurially curious.</h2>
+        </div>
+        <div class="education-copy">
+          <p>My academic concentration is <strong>Finance</strong>. Entrepreneurship is a strong personal interest that shapes how I listen, spot opportunities, and think creatively, but it is not my concentration.</p>
+          <dl class="credentials">
+            <div>
+              <dt>California Polytechnic State University</dt>
+              <dd>Orfalea College of Business<br>B.S. Business Administration, Finance Concentration<br><span>Expected graduation · May 2028</span></dd>
+            </div>
+            <div>
+              <dt>Skyline College</dt>
+              <dd>A.A. Business Administration · May 2026</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="experience" aria-labelledby="experience-heading">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-heading">Work I’m proud to put into practice.</h2>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h3>Special FX Salon</h3>
+            <p class="role">AI Operations &amp; Systems Consultant</p>
+            <p>Identified <strong>8 business bottlenecks</strong> across recordkeeping, accounting, and marketing, then built systems to make day-to-day work easier to manage.</p>
+          </article>
+          <article class="experience-card">
+            <h3>Curtner Consulting</h3>
+            <p class="role">Small Business Consultant</p>
+            <p>Led digital-transformation projects for <strong>3 local businesses</strong>, supporting modern operations, customer reach, and cash-flow visibility.</p>
+          </article>
+          <article class="experience-card">
+            <h3>Skyline Women’s Soccer</h3>
+            <p class="role">Team Captain</p>
+            <p>Elected by peers to lead a team of <strong>15+ student-athletes</strong>, balancing communication, feedback, and a collaborative team culture.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="writing" aria-labelledby="writing-heading">
+        <div>
+          <p class="eyebrow">How I think</p>
+          <h2 id="writing-heading">Startup principles worth practicing.</h2>
+        </div>
+        <div class="writing-copy">
+          <span class="note-label">Personal commentary</span>
+          <p>I’m drawn to entrepreneurship because it is not only about launching the next big thing. It is about understanding people, noticing overlooked problems, and improving what already matters.</p>
+          <p class="pull-quote">“Learn by Doing” means asking better questions, testing a thoughtful next move, and staying open to what people actually need.</p>
+          <p>That perspective shapes how I think about teams, customers, and the everyday work behind a good idea.</p>
+        </div>
+      </section>
+
+      <figure class="coast-note">
+        <img src="assets/coastal-sunset.webp" alt="Palm-lined California coast at sunset">
+        <figcaption>Grounded in California, focused on what’s next.</figcaption>
+      </figure>
+    </main>
+
+    <footer>
+      <span>Clarice Curtner</span>
+      <span>Personal portfolio · Built for thoughtful connections</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var link = document.getElementById("linkedin-link");
+      var status = document.getElementById("cta-status");
+
+      link.addEventListener("click", function () {
+        status.textContent = "Opening Clarice’s LinkedIn profile in a new tab.";
+      });
+    }());
+  </script>
+</body>
 </html>

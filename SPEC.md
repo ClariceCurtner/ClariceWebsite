@@ -2,11 +2,11 @@
 
 Choose the idea, person, interaction, and visual direction. The agent can help phrase and save your decisions after you approve them. The provided scope and review safeguards stay in place.
 
-- **Thing:** [My one-page website or mini-app and its main interaction.]
-- **Audience:** [One specific person, and what they want to do or understand.]
-- **Requirements:** One working primary interaction; selected states and results are understandable; honor my approved standing rule in AGENTS.md.
+- **Thing:** A clean, one-page portfolio for Clarice Curtner, highlighting her Business Administration background, Finance concentration, corporate-finance interest, and entrepreneurial mindset. It includes a working “Connect on LinkedIn” button, email contact link, resume-grounded experience highlights, and a short writing highlight about startup principles and Cal Poly’s Learn by Doing approach.
+- **Audience:** Campus recruiters and networking contacts considering Clarice for Summer 2027 corporate-finance or broader finance internships and wanting a quick sense of her Finance concentration, business experience, and entrepreneurial interests.
+- **Requirements:** One working primary interaction: “Connect on LinkedIn.” The page clearly distinguishes the primary button from secondary links, accurately identifies Finance as Clarice’s concentration and entrepreneurship as a personal interest, presents resume-grounded experience without inventing facts, and honors the approved standing rule in AGENTS.md.
 - **Guardrails:** Static browser code. No required external service, keys, accounts, runtime AI, or private data. Label fictional or sample content. Preserve the example and publishing setup. Work on a branch and wait for human review before shipping.
-- **Experience:** [My visual reference or direction and the most important layout or interaction relationship.]
-- **Test:** I can complete the main action, check one boundary or factual claim, and point to my standing rule's effect in the actual preview. After I approve and merge, the same registered Pages URL works.
+- **Experience:** Professional, modern, feminine, and approachable. Use a soft rose-pink palette with muted blush backgrounds and deeper berry accents; avoid neon. Use Clarice’s supplied professional headshot in the hero and her supplied California coast photo as a subtle personal detail. Keep the recruiter-facing introduction and LinkedIn action visually prominent, with clear education details, experience highlights, and the writing highlight below.
+- **Test:** I can open the page, find the LinkedIn button immediately, activate it with a keyboard, confirm it opens the intended LinkedIn profile, email Clarice through the secondary link, verify that Finance is the stated concentration and entrepreneurship is framed as an interest, recognize resume-grounded experience highlights, and point to the fact that LinkedIn is the only primary CTA. After I approve and merge, the same registered Pages URL works.
 
 The coastal example has a [completed TARGET](examples/coast/SPEC.md). It demonstrates the format, not a required topic.
