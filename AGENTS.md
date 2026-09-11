@@ -19,7 +19,7 @@ After STOP 1, help the student propose and approve the six TARGET lines and one 
 
 ## My standing rule
 
-[One observable, student-approved rule that protects this project's purpose or experience.]
+Keep “Connect on LinkedIn” as the only filled primary button. It must appear in the hero section, be keyboard accessible, and every other link must look clearly secondary.
 
 ## Workflow
 
